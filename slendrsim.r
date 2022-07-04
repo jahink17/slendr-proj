@@ -24,7 +24,7 @@ morocco <- region(
 )
 
 # European region:
-eur <- region(
+europe <- region(
   "Europe", map,
   polygon = list(c(4.3, 42.3), c(-9.3, 44.3), c(-10.6, 35.7), c(-1.7, 35.8))
 )
@@ -63,7 +63,7 @@ mer = population(
 # Expansion of Moroccan population into European region (90-80 kya)
 mor <- mor %>% expand_range(
   by = 2500e3, start = 90000, end = 80000,
-  snapshots = 30, polygon = join(mor, eur)
+  snapshots = 30, polygon = join(morocco, europe)
 )
 
 # Migration from the Middle East to Europe (~90-30 kya)
