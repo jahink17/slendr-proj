@@ -40,7 +40,7 @@ mideast = region(
 # note the removal 89998 ya - this is meant to simulate the extinction of the central African populations
 # due to the shift to arid conditions
 afr <- population(
-  "AFR", parent = "ancestor", time = 120000, N = 4000, remove = 
+  "AFR", parent = "ancestor", time = 120000, N = 4000, remove = 89998,
   map = map, center = c(15, 18), radius = 500e3
 )
 
