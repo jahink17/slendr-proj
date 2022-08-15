@@ -87,7 +87,7 @@ gf <- list(gene_flow(from = mor, to = mer, rate = 0.5, start = 90001, end = 1200
 list(gene_flow(from = mer, to = mor, rate = 0.5, start = 90001, end = 120000))
 
 # Compiling the model
-model_dir <- paste0(tempfile(), "_arabidopsis-test")
+model_dir <- path_to_model_directory
 model <- compile_model(populations = list(afr, mor, mer),gene_flow = gf,generation_time = 1,
 resolution = 10e3, competition = 1, mating = 1,dispersal = 1,path = model_dir)
   
@@ -95,7 +95,7 @@ resolution = 10e3, competition = 1, mating = 1,dispersal = 1,path = model_dir)
 # Change method parameter to "batch" to get a tsv.gz file to produce animated GIF from
 # Otherwise, if this isn't required, keep the following unchanged to open the model on SLiMgui:
 slim(model, sequence_length = 1e6, recombination_rate = 8e-10, save_locations = TRUE, 
-method = "gui", random_seed = 314159)
+method = "batch")
 
 present_samples <- schedule_sampling(model, times = 120001, list(mor, 50),
 locations = list(c(-7, 42.3), c(-6.7, 38.3), c(-3.7, 41), c(-0.11, 41.5), c(-1.1, 38.9), 
